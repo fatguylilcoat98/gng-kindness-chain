@@ -1,0 +1,897 @@
+<!--
+  The Good Neighbor Guard — Kindness Chain
+  Built by Christopher Hughes · Sacramento, CA
+  Created with the help of AI collaborators (Claude · GPT · Gemini · Groq)
+  Truth · Safety · We Got Your Back
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kindness Chain — The Good Neighbor Guard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6f0;
+    --warm-white: #fff9f2;
+    --bark: #3d2b1f;
+    --bark-light: #6b4c38;
+    --moss: #4a6741;
+    --moss-light: #6a8f60;
+    --moss-pale: #d4e8cf;
+    --gold: #c8902a;
+    --gold-pale: #f5e8cc;
+    --blush: #e8d5c4;
+    --sky: #7bafc9;
+    --shadow: rgba(61,43,31,0.12);
+    --shadow-deep: rgba(61,43,31,0.22);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(74,103,65,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 90% 80%, rgba(200,144,42,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 100% at 50% 50%, rgba(250,246,240,0) 0%, var(--cream) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 48px 24px 32px;
+  }
+
+  .gng-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--moss);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .gng-badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--moss-pale);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(0.7); }
+  }
+
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 700;
+    color: var(--bark);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--moss);
+  }
+
+  .tagline {
+    font-size: 16px;
+    color: var(--bark-light);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .stat-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .stat-number {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--moss);
+    line-height: 1;
+    transition: all 0.5s ease;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bark-light);
+    font-weight: 500;
+  }
+
+  /* ── DIVIDER VINE ── */
+  .vine-divider {
+    text-align: center;
+    font-size: 22px;
+    margin: 20px 0;
+    opacity: 0.4;
+    letter-spacing: 8px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── ADD FORM CARD ── */
+  .add-card {
+    background: var(--warm-white);
+    border: 1.5px solid var(--blush);
+    border-radius: 20px;
+    padding: 28px 28px 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .add-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--moss), var(--gold), var(--moss));
+  }
+
+  .add-card h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--bark);
+    margin-bottom: 6px;
+  }
+
+  .add-card .sub {
+    font-size: 13px;
+    color: var(--bark-light);
+    margin-bottom: 18px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .form-field {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bark-light);
+    margin-bottom: 6px;
+  }
+
+  input[type="text"], select, textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--blush);
+    border-radius: 10px;
+    background: var(--cream);
+    color: var(--bark);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: var(--moss-light);
+    box-shadow: 0 0 0 3px rgba(74,103,65,0.12);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.5;
+  }
+
+  .char-count {
+    text-align: right;
+    font-size: 11px;
+    color: var(--bark-light);
+    margin-top: 4px;
+  }
+
+  .char-count.warn { color: var(--gold); }
+  .char-count.over { color: #c0392b; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--moss);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    margin-top: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .submit-btn:hover {
+    background: var(--moss-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(74,103,65,0.3);
+  }
+
+  .submit-btn:active { transform: translateY(0); }
+
+  .submit-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  /* ── SUCCESS FLASH ── */
+  .success-flash {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    background: var(--moss-pale);
+    border: 1.5px solid var(--moss-light);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--moss);
+    font-weight: 500;
+    animation: slide-in 0.3s ease;
+  }
+
+  .success-flash.show { display: flex; }
+
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--bark);
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1.5px solid var(--blush);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--bark-light);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-tab.active, .filter-tab:hover {
+    background: var(--moss);
+    border-color: var(--moss);
+    color: #fff;
+  }
+
+  /* ── ACT CARDS ── */
+  #acts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .act-card {
+    background: var(--warm-white);
+    border: 1.5px solid var(--blush);
+    border-radius: 16px;
+    padding: 20px 22px 16px;
+    box-shadow: 0 2px 12px var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: card-enter 0.4s ease both;
+  }
+
+  .act-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px var(--shadow-deep);
+  }
+
+  @keyframes card-enter {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .act-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .act-category {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--moss);
+    background: var(--moss-pale);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .act-date {
+    font-size: 11px;
+    color: var(--bark-light);
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  .act-message {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--bark);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .act-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .act-author {
+    font-size: 13px;
+    color: var(--bark-light);
+    font-weight: 500;
+  }
+
+  .act-author::before { content: '— '; }
+
+  .light-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: var(--gold-pale);
+    border: 1.5px solid var(--gold);
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .light-btn:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: scale(1.04);
+  }
+
+  .light-btn.lit {
+    background: var(--gold);
+    color: #fff;
+    pointer-events: none;
+  }
+
+  .light-btn .candle { font-size: 16px; }
+
+  /* ── CHAIN TICKER ── */
+  .chain-ticker {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--moss);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  }
+
+  .chain-ticker .chain-num {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .ticker-dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  .ticker-dots span {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    animation: ticker-pulse 1.6s ease-in-out infinite;
+  }
+
+  .ticker-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .ticker-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes ticker-pulse {
+    0%,100% { opacity:0.3; }
+    50% { opacity:1; }
+  }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--bark-light);
+  }
+
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-state p { font-size: 15px; line-height: 1.6; }
+
+  /* ── LOAD MORE ── */
+  .load-more-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 20px;
+    background: transparent;
+    border: 1.5px solid var(--blush);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--bark-light);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .load-more-btn:hover {
+    background: var(--blush);
+    color: var(--bark);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 24px 20px 80px;
+    font-size: 12px;
+    color: var(--bark-light);
+    opacity: 0.7;
+  }
+
+  footer strong { color: var(--moss); }
+
+  /* ── NEW ACT NOTIFICATION ── */
+  .new-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+    animation: badge-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes badge-pop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+
+  @media (max-width: 500px) {
+    .form-row { flex-direction: column; }
+    .stats-row { gap: 20px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="gng-badge">
+    <span class="dot"></span>
+    The Good Neighbor Guard
+  </div>
+  <h1>The <em>Kindness</em> Chain</h1>
+  <p class="tagline">Share one act of kindness. Light up someone else's. Watch goodness spread, one neighbor at a time.</p>
+
+  <div class="stats-row">
+    <div class="stat-pill">
+      <div class="stat-number" id="stat-acts">—</div>
+      <div class="stat-label">Acts Shared</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-number" id="stat-lights">—</div>
+      <div class="stat-label">Candles Lit</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-number" id="stat-chain">—</div>
+      <div class="stat-label">Chain Length</div>
+    </div>
+  </div>
+</header>
+
+<div class="vine-divider">🌿 · 🌿 · 🌿</div>
+
+<main class="main">
+
+  <!-- ADD FORM -->
+  <div class="add-card">
+    <h2>Add Your Link to the Chain</h2>
+    <p class="sub">Something you did, saw, or received. Big or small — it all matters.</p>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label for="author-input">Your Name (optional)</label>
+        <input type="text" id="author-input" placeholder="A Good Neighbor" maxlength="50">
+      </div>
+      <div class="form-field">
+        <label for="category-select">Category</label>
+        <select id="category-select">
+          <option value="general">✨ General</option>
+          <option value="neighbor">🏠 Neighbor</option>
+          <option value="stranger">🌍 Stranger</option>
+          <option value="family">❤️ Family</option>
+          <option value="community">🤝 Community</option>
+          <option value="nature">🌿 Nature</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="message-input">Your Act of Kindness</label>
+      <textarea id="message-input" placeholder="I held the elevator for someone who was rushing, and they said it made their whole morning..." maxlength="280"></textarea>
+      <div class="char-count" id="char-count">0 / 280</div>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="submitAct()">
+      🌿 Add to the Chain
+    </button>
+
+    <div class="success-flash" id="success-flash">
+      🕯️ Your kindness is now part of the chain. Thank you.
+    </div>
+  </div>
+
+  <!-- ACTS FEED -->
+  <div class="section-header">
+    <div class="section-title">The Chain 🔗</div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-tab" onclick="setFilter('neighbor', this)">🏠</button>
+      <button class="filter-tab" onclick="setFilter('stranger', this)">🌍</button>
+      <button class="filter-tab" onclick="setFilter('family', this)">❤️</button>
+      <button class="filter-tab" onclick="setFilter('community', this)">🤝</button>
+      <button class="filter-tab" onclick="setFilter('nature', this)">🌿</button>
+    </div>
+  </div>
+
+  <div id="acts-container">
+    <div class="empty-state">
+      <div class="icon">🌱</div>
+      <p>Loading the chain...</p>
+    </div>
+  </div>
+
+  <button class="load-more-btn" id="load-more-btn" onclick="loadMore()" style="display:none">
+    Load more acts of kindness ↓
+  </button>
+
+</main>
+
+<footer>
+  <strong>The Good Neighbor Guard</strong> · Built in Sacramento, CA<br>
+  Truth · Safety · We Got Your Back · Made with 🤍 and Claude
+</footer>
+
+<!-- CHAIN TICKER -->
+<div class="chain-ticker">
+  <span>🔗 Chain length:</span>
+  <span class="chain-num" id="ticker-count">—</span>
+  <div class="ticker-dots">
+    <span></span><span></span><span></span>
+  </div>
+  <span>and growing</span>
+</div>
+
+<script>
+  const API = '';
+  let allActs = [];
+  let displayedActs = [];
+  let currentFilter = 'all';
+  let litActIds = new Set(JSON.parse(localStorage.getItem('lit_acts') || '[]'));
+  let offset = 0;
+  const PAGE_SIZE = 10;
+
+  // ── LOAD DATA ──
+  async function loadActs(reset = false) {
+    if (reset) { offset = 0; allActs = []; }
+    try {
+      const res = await fetch(`${API}/api/acts?limit=${PAGE_SIZE}&offset=${offset}`);
+      const data = await res.json();
+      allActs = reset ? data.acts : [...allActs, ...data.acts];
+      offset += data.acts.length;
+      renderActs();
+      document.getElementById('load-more-btn').style.display =
+        (offset < data.total) ? 'block' : 'none';
+    } catch(e) {
+      console.error(e);
+    }
+  }
+
+  async function loadStats() {
+    try {
+      const res = await fetch(`${API}/api/stats`);
+      const d = await res.json();
+      animateNum('stat-acts', d.total_acts);
+      animateNum('stat-lights', d.total_lights);
+      animateNum('stat-chain', d.chain_count);
+      document.getElementById('ticker-count').textContent = d.chain_count.toLocaleString();
+    } catch(e) {}
+  }
+
+  function animateNum(id, target) {
+    const el = document.getElementById(id);
+    const start = parseInt(el.textContent) || 0;
+    const dur = 800;
+    const startTime = performance.now();
+    function step(now) {
+      const t = Math.min((now - startTime) / dur, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(start + (target - start) * eased).toLocaleString();
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // ── RENDER ──
+  function renderActs() {
+    const container = document.getElementById('acts-container');
+    let filtered = currentFilter === 'all'
+      ? allActs
+      : allActs.filter(a => a.category === currentFilter);
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="icon">🌱</div>
+          <p>No acts in this category yet.<br>Be the first to add one!</p>
+        </div>`;
+      return;
+    }
+
+    container.innerHTML = filtered.map((act, i) => `
+      <div class="act-card" style="animation-delay: ${Math.min(i * 0.05, 0.4)}s">
+        <div class="act-top">
+          <span class="act-category">${act.category_label}</span>
+          <span class="act-date">${act.date}</span>
+        </div>
+        <div class="act-message">"${escHtml(act.message)}"</div>
+        <div class="act-bottom">
+          <span class="act-author">${escHtml(act.author)}</span>
+          <button class="light-btn ${litActIds.has(act.id) ? 'lit' : ''}"
+                  onclick="lightAct('${act.id}', this)"
+                  title="Light a candle for this act">
+            <span class="candle">${litActIds.has(act.id) ? '🕯️' : '🕯'}</span>
+            <span class="count">${act.lights || 0}</span>
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── FILTERS ──
+  function setFilter(f, btn) {
+    currentFilter = f;
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderActs();
+  }
+
+  // ── LOAD MORE ──
+  function loadMore() {
+    loadActs(false);
+  }
+
+  // ── SUBMIT ──
+  async function submitAct() {
+    const msg = document.getElementById('message-input').value.trim();
+    const author = document.getElementById('author-input').value.trim();
+    const category = document.getElementById('category-select').value;
+
+    if (!msg || msg.length < 5) {
+      document.getElementById('message-input').focus();
+      document.getElementById('message-input').style.borderColor = '#c0392b';
+      setTimeout(() => document.getElementById('message-input').style.borderColor = '', 1500);
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.classList.add('loading');
+    btn.textContent = '🌿 Adding to the chain...';
+
+    try {
+      const res = await fetch(`${API}/api/acts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, author: author || 'A Good Neighbor', category })
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('message-input').value = '';
+        document.getElementById('author-input').value = '';
+        document.getElementById('char-count').textContent = '0 / 280';
+        const flash = document.getElementById('success-flash');
+        flash.classList.add('show');
+        setTimeout(() => flash.classList.remove('show'), 3500);
+        loadActs(true);
+        loadStats();
+      }
+    } catch(e) { console.error(e); }
+
+    btn.classList.remove('loading');
+    btn.textContent = '🌿 Add to the Chain';
+  }
+
+  // ── LIGHT A CANDLE ──
+  async function lightAct(id, btn) {
+    if (litActIds.has(id)) return;
+    try {
+      const res = await fetch(`${API}/api/light`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ act_id: id })
+      });
+      const data = await res.json();
+      if (data.success) {
+        litActIds.add(id);
+        localStorage.setItem('lit_acts', JSON.stringify([...litActIds]));
+        btn.classList.add('lit');
+        btn.querySelector('.candle').textContent = '🕯️';
+        btn.querySelector('.count').textContent = data.lights;
+        btn.style.animation = 'badge-pop 0.3s cubic-bezier(0.175,0.885,0.32,1.275)';
+        loadStats();
+      }
+    } catch(e) { console.error(e); }
+  }
+
+  // ── CHAR COUNT ──
+  document.getElementById('message-input').addEventListener('input', function() {
+    const len = this.value.length;
+    const el = document.getElementById('char-count');
+    el.textContent = `${len} / 280`;
+    el.className = 'char-count' + (len > 260 ? ' warn' : '') + (len >= 280 ? ' over' : '');
+  });
+
+  // ── ENTER KEY ──
+  document.getElementById('message-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && e.metaKey) submitAct();
+  });
+
+  // ── ESCAPE HELPER ──
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  // ── SEED SOME STARTER ACTS ──
+  async function seedIfEmpty() {
+    try {
+      const res = await fetch(`${API}/api/acts?limit=1`);
+      const data = await res.json();
+      if (data.total === 0) {
+        const starters = [
+          { message: "I noticed my neighbor's trash cans were still out by 8pm, so I rolled them back to their house.", author: "Maria T.", category: "neighbor" },
+          { message: "A stranger paid for my coffee this morning. I passed it forward by buying lunch for the person behind me in line.", author: "A Good Neighbor", category: "stranger" },
+          { message: "I sat with my grandfather for two hours and just listened to his stories. He cried happy tears when I left.", author: "James R.", category: "family" },
+          { message: "Picked up a bag of trash from the park trail near my house. Took 10 minutes and the trail looks beautiful again.", author: "A Good Neighbor", category: "nature" },
+          { message: "Organized a free tool-lending station in our neighborhood — just a box with hammers, drills, and levels people can borrow.", author: "The Garcias", category: "community" },
+        ];
+        for (const s of starters) {
+          await fetch(`${API}/api/acts`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(s)
+          });
+        }
+        loadActs(true);
+        loadStats();
+      }
+    } catch(e) {}
+  }
+
+  // ── INIT ──
+  loadActs(true);
+  loadStats();
+  setTimeout(seedIfEmpty, 500);
+
+  // Auto-refresh stats every 30s
+  setInterval(loadStats, 30000);
+</script>
+</body>
+</html>
